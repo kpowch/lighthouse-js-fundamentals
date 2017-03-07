@@ -1,29 +1,24 @@
-// revised LoopyLighthouse (using arrays)
+// refactored LoopyLighthouse (using arrays)
 /*
 range = array of 2 numbers: start and end values of loop
 multiples = array of 2 numbers: multiples to replace with words
- words = 2 strings: words to replace the multiples
+words = 2 strings: words to replace the multiples
 */
 
 function loopyLighthouse(range, multiples, word) {
   for (var i = range[0]; i <= range[1]; i++) {
-    // if i is multiple, replace with word
-    if (i % multiples[0] === 0 && i % multiples[1] === 0) {
-      console.log(word[0] + word[1]);
+    var output = "";
+    if (i % multiples[0] === 0) {
+      output += word[0];
     }
-    else if (i % multiples[0] === 0) {
-      console.log(word[0]);
+    if (i % multiples[1] === 0) {
+      output += word[1];
     }
-    else if (i % multiples[1] === 0) {
-      console.log(word[1]);
-    }
-    else {
-      console.log(i);
+    console.log(output === "" ? i : output); //print the number if it didn't get caught by the if statements
     }
   }
-}
 
-//LoopyLighthouse([0,12], [2,5],["Batty","Beacon"]);
+loopyLighthouse([0,12], [3,4], ["Loopy","Lighthouse"]);
 
 
 // original exercise
